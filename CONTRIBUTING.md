@@ -27,7 +27,7 @@ The RL3 Standard Library is licensed under the Apache License. Anything contribu
 
 `UPPER_CASE_NAME` is used for public patterns and predicates.
 
-`CamelCaseName` is used for 'local' patterns and predicates (i.e. defined for internal purposes - can be used by derived programs, but it is not expected)
+`CamelCaseName` is used for 'local' patterns and predicates (i.e. defined for internal purposes - can be used by derived programs, but it is not expected).
 
 `_NB` suffix can be used to inform that the pattern is based on 'ignore blanks' matching.
 
