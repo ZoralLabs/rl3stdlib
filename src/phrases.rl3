@@ -1,0 +1,200 @@
+#   Copyright 2018 Zoral Limited
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+include <common.rl3>
+include <copyright.rl3>
+
+#=== and/or/not/the ===
+
+pattern AND [icase] [inline]
+    (and|und|&)
+
+pattern NOT [icase]
+    (((does|can|is|have|has|could|was|do)\s)?not|cannot|dont|doesn{APOSTROPHE}t|don{APOSTROPHE}t)
+
+pattern THE [icase] [inline]
+    (the|an?)
+
+#=== pronoun-based ===
+
+pattern I [icase] [inline]
+    (i(\s(am|{APOSTROPHE}?m|do|did))?|me)
+
+pattern I_AM [icase] [inline]
+    (i am|i{APOSTROPHE}?m)
+
+pattern AM_I [icase] [inline]
+    (am i)
+
+pattern MY [icase] [inline]
+    (my|mine)
+
+pattern YOU [icase] [inline]
+    (you)
+
+pattern YOU_ARE [icase] [inline]
+    (you are|you{APOSTROPHE}?re)
+
+pattern ARE_YOU [icase] [inline]
+    (are you)
+
+pattern IT [icase] [inline]
+    (it)
+
+pattern IT_IS [icase] [inline]
+    (it is)
+
+pattern IS_IT [icase] [inline]
+    (is it)
+
+#=== ok/yes/no ===
+
+pattern OK [icase] [inline]
+    (ok|o\.k\.)
+
+pattern YES [icase] [inline]
+    (y+e+s+|yeah|yep|yup|absolutely|certainly|{OK})
+
+pattern NO [icase] [inline]
+    (n+o+|nope|nah)
+
+#=== hello/goodbye ===
+
+pattern HELLO [icase] [inline]
+    (hello|hi|hola|hey|howdy|hai|yo|hiya|konnichiwa)
+
+pattern GOODBYE [icase] [inline]
+    (goodbye|adieu|bye-?bye|adios|cheerio|ciao|bye|see ya|sayounara)
+
+#=== be/was ===
+
+pattern BE [icase] [inline]
+    (be|am|is|are|was|has been)
+
+pattern WAS [icase] [inline]
+    (was|were|have been|has been)
+
+#=== sorry ===
+
+pattern SORRY [icase] [inline]
+    ((sorry|apologize|apology)(,|,\sbut|\sbut)?)
+
+#=== dont/want/cant ===
+
+pattern DONT [icase] [inline]
+    (do\s?not|don{APOSTROPHE}?t)
+
+pattern WONT [icase] [inline]
+    (will\s?not|won{APOSTROPHE}?t)
+
+pattern CANT [icase] [inline]
+    (can\s?not|can{APOSTROPHE}?t)
+
+#=== question ===
+
+pattern BASE_QUESTION [icase] [inline]
+    (what|how|when|why|who|where)
+
+pattern IS_THERE [icase] [inline]
+    (is there)
+
+pattern WHAT_IS [icase] [inline]
+    (what is|who is|define|what do you know about|what can you tell about|what can you tell me about|can you tell me about|tell me about|can i get information on what is|can you give me information about|can i get to know what is|i need information on|i want to get to know about|i need to know what is|can you give the definition of|can you define what is|can you describe what is|{DONT} understand what is|do you know about)
+
+pattern WHAT_IS_YOUR_NAME [icase] [inline]
+    (what is your name|tell me your name|tell your name)
+
+pattern WHO_ARE_YOU [icase] [inline]
+    (who are you|tell me about yourself|tell me more about yourself|tell me about you|what is you)
+
+#=== relatives ===
+
+pattern MOTHER [icase] [inline]
+    (mother|mom|mommy|mama)
+
+pattern FATHER [icase] [inline]
+    (father|dad|daddy|papa)
+
+pattern RELATIVE [icase] [inline]
+    ({MOTHER}|{FATHER}|bro|brother|sis|sister|cousin|aunt|uncle|grandma|grandmother|grandpa|grandfather|wife|children|child)
+
+#=== slang / rude words ===
+
+pattern RUDE_WORD [icase] [inline]
+    (fuck|fucker|shit|damn|shut up|bitch|go hell|go to hell)
+
+#=== nobody/everybody ===
+
+pattern NOBODY [icase] [inline]
+    (nobody|noone|none)
+
+pattern EVERYBODY [icase] [inline]
+    (everyone|everybody)
+
+#=== welcome ===
+
+pattern WELCOME [icase] [inline]
+    (welcome|ողջույնի խոսք|v.lkommen|välkommen|willkommen)
+
+pattern WELCOME_TO [icase]
+    (accueil|bem-vindo ao|benvenuto|benvido ao|bienvenue au|bienvenue à|bine aţi venit la|dialu-alukan untuk|dobrodošli na|dobrodošli v|fáilte roimh|Hello and welcome to|Hello! Welcome to the online home of|hoan nghênh|hoş geldiniz|kuwakaribisha kwa|la benvinguda a|la bienvenida a|maligayang pagdating sa|merħba li|ongietorria to|selamat datang di|sveiki atvykę į|tere tulemast|velkomið að|velkommen til|välkommen till|welcome to|welcome to the|Welcome to the online home of|welcome to website of|welkom bij|welkom by|wellcome të|willkommen|willkommen bei|xoş gəlmisiniz üçün|zapraszamy do|добре дошли в|добре дошли на|добредојдовте на|добро пожаловать на|добродошли у|ласкаво просимо|ласкаво просимо на|მიესალმებიან)
+
+pattern WELCOME_TO_OUR [icase]
+    (bem vindo ao nosso|benvenuto al nostro|benvido ao noso|benvingut al nostre|bienvenido a nuestro|bienvenue à notre|bine ati venit la|croeso i ein|dialu-alukan untuk kami|dobrodošli na naši|dobrodošli na našu|fáilte romhat chuig ár|gratum nobis|herzlich willkommen auf unserer|hoan nghênh của chúng tôi|hoşgeldin bizim|karibu wetu|laipni lūdzam mūsu|maligayang pagdating sa aming|merħba lill tagħna|mirë se vini në tonë|ongi etorri gure|selamat datang kami|sveiki atvykę į mūsų|tere tulemast meie|velkomin til okkar|velkommen til vores|velkommen til våre|välkommen till vår|vítame vás na našich|vítáme vás na našich|welcome to our|welkom by ons|welkom op onze|willkommen auf unserer|xoş gəlmisiniz bizim|zapraszamy do naszego|ευπρόσδεκτοι να μας|добре дошли в нашия|добредојдовте на нашата|добро пожаловать на наш|добродошли на нашу|ласкаво просимо на наш|сардэчна запрашаем на наш|へようこそ私たちの|欢迎来到我们的|에 오신 것을 환영합니다 우리)
+
+#=== designed by / powered by ===
+
+pattern DESIGNED_BY [icase]
+    (created at|design|design & absolute theme by|design & the absolute theme by|design and absolute theme by|design and the absolute theme by|design by|designed & built by|designed & created by|designed and built by|designed and created by|designed by|designed by the|hosted by|Joomla template created by|powered by|site by|site created by|site design|site design & development by|site design and development by|site designed & managed by|site designed and managed by|site development by|site produced by|web design by|web site by|web site created by|web site design|web site design & development by|web site design and development by|web site designed & managed by|web site designed and managed by|web site development by|web site produced by|web-design by|web-site by|web-site created by|web-site design|web-site design & development by|web-site design and development by|web-site designed & managed by|web-site designed and managed by|web-site development by|web-site produced by|webdesign by|website by|website created by|website design|website design & development by|website design and development by|website designed & managed by|website designed and managed by|website development by|website produced by|your isp is|design\s?{COPYRIGHT_SYMB}|web[ \-]?site design(\s..)? {COPYRIGHT_SYMB}( \d\d\d\d)?)
+
+pattern POWERED_BY [icase] [inline]
+    (powered by)
+
+#=== other ===
+
+pattern MAYBE [icase] [inline]
+    (maybe|perhaps|probably)
+
+pattern FRIEND [icase] [inline]
+    (friend|buddy|comrade)
+
+pattern REMEMBER [icase] [inline]
+    (remember|recall|recollect)
+
+pattern SAME [icase] [inline]
+    (same|alike|identical|equivalent)
+
+pattern BELIEF [icase] [inline]
+    (belief|think|believe)
+
+pattern DESIRE [icase] [inline]
+    (desire|want|need)
+
+pattern BROWSER [icase] [inline]
+    (browsers?|web browsers?)
+
+pattern WEBSITE [icase]
+    (site|web[ \-]?(site|page)|seite|domain|domain name|home ?page|сайт|веб-?сайт|sitio|webseite|webwerf|уебсайт|pàgina web|kodulehel|sivusto|ιστοσελίδα|կայքը|səhifəsinə bax|honlapján|heimasíðu|láithreán gréasáin|웹사이트|сајт|websajt|nettsted|página web|webbplats|webstead|online home)
+
+pattern WEBSITE_OF [icase]
+    (the ((official|main) )?{WEBSITE} of( the)?|official main {WEBSITE} of|offizielle internetseite der|homepage des|site officiel de la)
+
+pattern OVERVIEW [icase] [inline]
+    (overview|details)
+
+pattern COMMENTS [icase] [inline]
+    (comments?|kommentare?|kommentarer)
+
+pattern ALL_RIGHTS_RESERVED [icase]
+    (all copyright reserved|all copyrights reserved|all right reserved|all rights reserved|all trademark recognised|all trademarks recognised|alla rättigheter förbehålles|alla rättigheter förbehållna|alla rättigheter reserverade|alle rechte vorbehalten|her hakkı saklıdır|limited right reserved|limited rights reserved|med ensamrätt|quedan reservados todos los derechos|quedan reservados todos los direitos|quedan reservados todos os derechos|quedan reservados todos os direitos|reservados todos los derechos|reservados todos los direitos|reservados todos os derechos|reservados todos os direitos|todos los derechos reservados|todos los direitos reservados|todos os derechos reservados|todos os direitos reservados|tous droits reserves|tous droits reservés|tous droits réserves|tous droits réservés|tutti i diritti riservati|všetky práva vyhradené|все права защищены|всі права захищено|усі права захищено|усі права захищені)

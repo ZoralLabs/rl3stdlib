@@ -1,0 +1,40 @@
+#   Copyright 2018 Zoral Limited
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+# === continent ===
+
+pattern CONTINENT [icase] [inline]
+    {dawg continent}
+
+# === country ===
+
+pattern COUNTRY_STRONG [icase] [inline]
+    {dawg country}
+
+pattern COUNTRY_WEAK [icase] [inline]
+    {dawg country_weak}
+
+pattern COUNTRY [icase] [inline]
+    ({COUNTRY_STRONG}|{COUNTRY_WEAK})
+
+# === city ===
+
+pattern CITY_STRONG [icase] [inline]
+    {dawg city}
+
+pattern CITY_WEAK [icase] [inline]
+    {dawg city_weak}
+
+pattern CITY [icase] [inline]
+    ({CITY_STRONG}|{CITY_WEAK})

@@ -1,0 +1,125 @@
+#   Copyright 2018 Zoral Limited
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+# === person prefix ===
+
+pattern PERSON_PFX [icase] [inline]
+    {dawg person_prefix}
+
+pattern PERSON_PFX_SPECIAL [icase] [inline]
+    (mrs?\.)
+
+# === person suffix ===
+
+pattern Person_Sfx [icase] [inline]
+    {dawg person_suffix}
+
+pattern PERSON_SFX [icase] [inline]
+    ({Person_Sfx}(,?\s{Person_Sfx}){0,5})
+
+# === number in person name ===
+
+pattern PERSON_NUM [inline]
+    (I|II|III|IV)
+
+# === first name ===
+
+pattern PERSON_FIRSTNAME_STRONG [icase] [inline]
+    {dawg person_first_name}
+
+pattern PERSON_FIRSTNAME_WEAK [icase] [inline]
+    {dawg person_first_name_weak}
+
+pattern PERSON_FIRSTNAME [icase] [inline]
+    ({PERSON_FIRSTNAME_STRONG}|{PERSON_FIRSTNAME_WEAK})
+
+# === last name ===
+
+pattern PERSON_LASTNAME_STRONG [icase] [inline]
+    {dawg person_last_name}
+
+pattern PERSON_LASTNAME_WEAK [icase] [inline]
+    {dawg person_last_name_weak}
+
+pattern PERSON_LASTNAME [icase] [inline]
+    ({PERSON_LASTNAME_STRONG}|{PERSON_LASTNAME_WEAK})
+
+# === middle name ===
+
+pattern PERSON_MIDDLENAME [icase] [inline]
+    {dawg person_middle_name}
+
+# === full name ===
+
+pattern Has_Upper(x)
+    {x}
+if
+    search $$ [[:upper:]]
+
+pattern Person_Fn
+    ({Has_Upper {PERSON_FIRSTNAME}}(-{PERSON_FIRSTNAME}|\s{Has_Upper {PERSON_FIRSTNAME}})?)
+
+pattern Person_Fn_Strong [inline]
+    ({Has_Upper {PERSON_FIRSTNAME_STRONG}}(-{PERSON_FIRSTNAME}|\s{Has_Upper {PERSON_FIRSTNAME}})?)
+
+pattern Person_Ln [inline]
+    ({Has_Upper {PERSON_LASTNAME}}(-{PERSON_LASTNAME}|\s{Has_Upper {PERSON_LASTNAME}})?(,?\s{PERSON_NUM})?)
+
+pattern Person_Ln_Strong [inline]
+    ({Has_Upper {PERSON_LASTNAME_STRONG}}(-{PERSON_LASTNAME}|\s{Has_Upper {PERSON_LASTNAME_STRONG}})?(,?\s{PERSON_NUM})?)
+
+pattern Person_Ln_Pfx [icase] [inline]
+    (da|de|del|de\sla|de\slos|di|la|mc|mac|van|van\sde[nr]?|von|o'|al|ibn|bin)
+
+pattern Person_Mn [inline]
+    ({PERSON_MIDDLENAME}|[[:upper:]]\.?|["\(]?{Person_Fn}["\)]?)
+
+pattern Person_In_Text(first,last)
+    (
+         ({PERSON_PFX_SPECIAL}|{PERSON_PFX} )?([[:upper:]]\.? )?({first}( | {Person_Mn} )({Person_Ln_Pfx} )?{last})(( |, )\(?{PERSON_SFX}\)?)?
+        |({PERSON_PFX_SPECIAL}|{PERSON_PFX} )([[:upper:]]\.? )?({first}|({Person_Ln_Pfx} )?{last})
+    )
+
+pattern p_Person_Wrong_1 [icase] [inline]
+    (
+         {dawg person_name_wrong}
+        |calle\sde\s.*
+        |medina\sde\s.*
+    )
+
+pattern p_Person_Wrong_2 [inline]
+    (
+        .*\s(do|ca|ma)
+    )
+
+pattern p_Person_Wrong [inline]
+    ({p_Person_Wrong_1}|{p_Person_Wrong_2})
+
+pattern PERSON_FULL_NAME
+    (
+        {Person_In_Text {Person_Fn} {Person_Ln}}
+    )
+if
+    not match $$ {p_Person_Wrong}
+
+pattern PERSON_FULL_NAME_STRONG
+    (
+         {Person_In_Text {Person_Fn_Strong} {Person_Ln_Strong}}
+        |({PERSON_PFX_SPECIAL}|{PERSON_PFX} ){Person_Fn}( | {Person_Mn} )({Person_Ln_Pfx} )?{Person_Ln}(( |, )\(?{PERSON_SFX}\)?)?
+        |{Person_Fn}( | {Person_Mn} )({Person_Ln_Pfx} )?{Person_Ln}( |, )\(?{PERSON_SFX}\)?
+        |({PERSON_PFX_SPECIAL}|{PERSON_PFX} )?{Person_Fn_Strong} ({Person_Mn} ({Person_Ln_Pfx} )?|{Person_Ln_Pfx} ){Person_Ln}(( |, )\(?{PERSON_SFX}\)?)?
+        |({PERSON_PFX_SPECIAL}|{PERSON_PFX} )?{Person_Fn} ({Person_Mn} ({Person_Ln_Pfx} )?|{Person_Ln_Pfx} ){Person_Ln_Strong}(( |, )\(?{PERSON_SFX}\)?)?
+    )
+if
+    not match $$ {p_Person_Wrong}

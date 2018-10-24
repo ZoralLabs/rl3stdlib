@@ -1,0 +1,192 @@
+#   Copyright 2018 Zoral Limited
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+
+include <common.rl3>
+
+pattern HOURS_NUM [inline]
+    ([01]\d|2[0-4])
+
+pattern MINUTES_NUM [inline]
+    ([0-5]\d|60)
+
+pattern SECONDS_NUM [inline]
+    ([0-5]\d|60)
+
+# === Day of week, full ===
+
+pattern DAY_OF_WEEK_SYMB_EN [icase] [inline]
+    (monday|tuesday|wednesday|thursday|friday|saturday|sunday)
+
+pattern DAY_OF_WEEK_SYMB_FR [icase] [inline]
+    (lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche)
+
+pattern DAY_OF_WEEK_SYMB_DE [icase] [inline]
+    (montag|dienstag|mittwoch|donnerstag|freitag|samstag|sonntag)
+
+pattern DAY_OF_WEEK_SYMB_IT [icase] [inline]
+    (lunedì|martedì|mercoledì|giovedì|venerdì|sabato|domenica)
+
+pattern DAY_OF_WEEK_SYMB_ES [icase] [inline]
+    (lunes|martes|miércoles|jueves|viernes|sábado|domingo)
+
+pattern DAY_OF_WEEK_SYMB_UA [icase] [inline]
+    (понеділок|вівторок|середа|четвер|п{APOSTROPHE}ятниця|субота|неділя)
+
+pattern DAY_OF_WEEK_SYMB [icase] [inline]
+    ({DAY_OF_WEEK_SYMB_EN}|{DAY_OF_WEEK_SYMB_FR}|{DAY_OF_WEEK_SYMB_DE}|{DAY_OF_WEEK_SYMB_IT}|{DAY_OF_WEEK_SYMB_ES}|{DAY_OF_WEEK_SYMB_UA})
+
+# === Day of week, abbr ===
+
+pattern DAY_OF_WEEK_ABBR_EN [icase] [inline]
+    (mon|mo|tues|tue|tu|wed|we|thurs|thur|thu|th|fri|fr|sat|sa|sun|su)
+
+pattern DAY_OF_WEEK_ABBR_FR [icase] [inline]
+    (lun|lu|mar|ma|mer|me|jeu|je|ven|ve|sam|sa|dim|di)
+
+pattern DAY_OF_WEEK_ABBR_DE [icase] [inline]
+    (mon|mo|die|di|mit|mi|don|do|fre|fr|sam|sa|son|so)
+
+pattern DAY_OF_WEEK_ABBR_IT [icase] [inline]
+    (lun|lu|mar|ma|mer|me|gio|gi|ven|ve|sab|sa|dom|do)
+
+pattern DAY_OF_WEEK_ABBR_ES [icase] [inline]
+    (lun|lu|mar|ma|mié|mi|jue|ju|vie|vi|sáb|sá|dom|do)
+
+pattern DAY_OF_WEEK_ABBR_UA [icase] [inline]
+    (пнд|пн|втр|вт|срд|ср|чтв|чт|птн|пт|сбт|сб|ндл|нд)
+
+pattern DAY_OF_WEEK_ABBR [icase] [inline]
+    ({DAY_OF_WEEK_ABBR_EN}|{DAY_OF_WEEK_ABBR_FR}|{DAY_OF_WEEK_ABBR_DE}|{DAY_OF_WEEK_ABBR_IT}|{DAY_OF_WEEK_ABBR_ES}|{DAY_OF_WEEK_ABBR_UA})
+
+# === Month, num ==
+
+pattern MONTH_NUM [inline]
+    (0?\d|1[012])
+
+pattern MONTH_NUM_2 [inline]
+    (0\d|1[012])
+
+# === Month, symb ===
+
+pattern MONTH_SYMB_EN [icase] [inline]
+    (january|february|march|april|may|june|july|august|september|october|november|december)
+
+pattern MONTH_SYMB_FR [icase] [inline]
+    (janvier|février|mars|avril|mai|juin|juillet|août|septembre|octobre|novembre|décembre)
+
+pattern MONTH_SYMB_DE [icase] [inline]
+    (januar|jänuar|februar|märz|merz|april|mai|juni|juli|august|auguscht|september|septämber|oktober|november|novämber|dezember|dezämber)
+
+pattern MONTH_SYMB_IT [icase] [inline]
+    (gennaio|febbraio|marzo|aprile|maggio|giugno|luglio|agosto|settembre|ottobre|novembre|dicembre)
+
+pattern MONTH_SYMB_ES [icase] [inline]
+    (enero|febrero|marzo|abril|mayo|junio|julio|agosto|septiembre|octubre|noviembre|diciembre)
+
+pattern MONTH_SYMB_UA [icase] [inline]
+    (січень|sičen'|лютий|ljutyj|березень|berezen'|квітень|kviten'|травень|traven'|червень|červen'|липень|lypen|серпень|serpen|вересень|veresen|жовтень|zhovten|листопад|lystopad|грудень|hruden)
+
+pattern MONTH_SYMB [icase] [inline]
+    ({MONTH_SYMB_EN}|{MONTH_SYMB_FR}|{MONTH_SYMB_DE}|{MONTH_SYMB_IT}|{MONTH_SYMB_ES}|{MONTH_SYMB_UA})
+
+# === Month, abbr ===
+
+pattern MONTH_ABBR_EN [icase] [inline]
+    (jan|feb|mar|apr|may|jun|jul|aug|sept|sep|oct|nov|dec)
+
+pattern MONTH_ABBR_FR [icase] [inline]
+    (janv|févr|mars|avril|mai|juin|juil|ao-t|sept|oct|nov|déc)
+
+pattern MONTH_ABBR_DE [icase] [inline]
+    (jan|jän|feb|märz|apr|mai|juni|juli|aug|sept|okt|nov|dez)
+
+pattern MONTH_ABBR_IT [icase] [inline]
+    (genn|febbr|mar|apr|magg|giugno|luglio|ag|sett|ott|nov|dic)
+
+pattern MONTH_ABBR_ES [icase] [inline]
+    (enero|feb|marzo|abr|mayo|jun|jul|agosto|sept|set|oct|nov|dic)
+
+pattern MONTH_ABBR_UA [icase] [inline]
+    (січ|sich|лют|liut|бер|ber|квіт|kvit|трав|trav|чер|cher|лип|lyp|серп|serp|вер|ver|жовт|zhovt|лист|lyst|груд|hrud)
+
+pattern MONTH_ABBR [icase] [inline]
+    ({MONTH_ABBR_EN}|{MONTH_ABBR_FR}|{MONTH_ABBR_DE}|{MONTH_ABBR_IT}|{MONTH_ABBR_ES}|{MONTH_ABBR_UA})
+
+# === Day, num ===
+
+pattern DAY_NUM [inline]
+    ([1-9]|[012]\d|3[01])
+
+pattern DAY_NUM_2 [inline]
+    ([012]\d|3[01])
+
+pattern DAY_SYMB [icase] [inline]
+    {dawg day_of_month}
+
+# === Year, num ===
+
+pattern YEAR [inline]
+    (\d{4})
+
+pattern YEAR_RANGE [icase] [inline]
+    ({YEAR}([~\-/,]| [~\-/,] |, | thru |\.\.\.?| to | through )({YEAR}|present))
+
+# === Date ===
+
+pattern DATE_STRONG [icase]
+    (
+         {YEAR}-{MONTH_NUM}-{DAY_NUM}
+        |{DAY_NUM}-{MONTH_NUM}-{YEAR}
+        |{DAY_NUM}\.{MONTH_NUM}\.{YEAR}
+        |{DAY_NUM}/{MONTH_NUM}/{YEAR}
+        |{MONTH_NUM}/{DAY_NUM}/{YEAR}
+        |{MONTH_NUM}-{DAY_NUM}-{YEAR}
+        |({MONTH_SYMB}|{MONTH_ABBR}\.?)\s{DAY_NUM}(,|\sof)?\s{YEAR}
+        |(the\s)?{DAY_SYMB}(\sof)?\s{MONTH_SYMB}(,|\sof)?\s{YEAR}
+        |{MONTH_SYMB}(\sthe)?\s{DAY_SYMB}(,|\sof)?\s{YEAR}
+        |{DAY_NUM}\s({MONTH_SYMB}|{MONTH_ABBR}\.?)\s{YEAR}
+        |{DAY_NUM}-({MONTH_SYMB}|{MONTH_ABBR}\.?)-{YEAR}
+        |{DAY_NUM}\.\s({MONTH_SYMB_DE}|{MONTH_ABBR_DE}\.?)\s{YEAR}
+        |({DAY_OF_WEEK_SYMB}|{DAY_OF_WEEK_ABBR}\.)(,\s|\sthe\s)({DAY_NUM}|{DAY_SYMB})(\sof)?\s({MONTH_SYMB}|{MONTH_ABBR}\.?)(,|\sof)?\s{YEAR}
+        |({DAY_OF_WEEK_SYMB}|{DAY_OF_WEEK_ABBR}\.),?\s({MONTH_SYMB}|{MONTH_ABBR}\.?)\s({DAY_NUM}|{DAY_SYMB})(,|\sof)?\s{YEAR}
+        |(el\s)?{DAY_NUM}\sde\s{MONTH_SYMB_ES}\sde\s{YEAR}
+    )
+
+pattern DATE_WEAK
+    (
+         {DAY_NUM}-{MONTH_NUM}-\d\d
+        |{DAY_NUM}\.{MONTH_NUM}\.\d\d
+        |{DAY_NUM}/{MONTH_NUM}/\d\d
+        |{MONTH_NUM}-{DAY_NUM}-\d\d
+        |{MONTH_NUM}/{DAY_NUM}/\d\d
+        |{YEAR}{MONTH_NUM_2}{DAY_NUM_2}
+    )
+
+pattern DATE [icase] [inline]
+    ({DATE_STRONG}|{DATE_WEAK})
+
+# === Time ===
+
+pattern TIME [icase]
+    (
+         {HOURS_NUM}:{MINUTES_NUM}(:{SECONDS_NUM}(\.{number})?)?Z?
+        |{HOURS_NUM}\.{MINUTES_NUM}\s?(am|pm|a\.m\.|p\.m\.)
+    )
+
+# === DateTime ===
+
+pattern DATETIME [icase]
+    (
+         {DATE}[\sT]{TIME}
+    )
