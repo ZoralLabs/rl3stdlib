@@ -8,3 +8,6 @@ It is also can be installed manually by owerwriting `/usr/share/rl3/stdlib` fold
 
 ## Licence
 This library is provided by [Zoral](https://zorallabs.com) under the Apache License. See [LICENSE](LICENSE) for more information.
+
+## How to Contribute
+We are very happy to receive and merge your contributions. Please see the [Contribution Guidelines](CONTRIBUTING.md).
