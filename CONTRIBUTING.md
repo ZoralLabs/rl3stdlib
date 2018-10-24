@@ -1,6 +1,6 @@
 
 # Contributing to RL3 Standard Library
-Contributions are welcome! There are many ways to contribute to this project: reporting bugs and reature requests, spreading the word, and adding new features and patches.
+Contributions are welcome! There are many ways to contribute to this project: reporting bugs and feature requests, spreading the word, and adding new features and patches.
 
 ## Getting Started
 * Make sure you have a GitHub account.
