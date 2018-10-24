@@ -22,3 +22,20 @@ Contributions are welcome! There are many ways to contribute to this project: re
 
 ## Licensing
 The RL3 Standard Library is licensed under the Apache License. Anything contributed to RL3 Standard Library must be released under this license.
+
+## Code Style Notes
+
+UPPER_CASE_NAMES
+Used for public patterns and predicates.
+
+CamelCaseNames
+Used for 'local' patterns and predicates (i.e. defined for internal purposes - can be used by derived programs, but it is not expected)
+
+_NB Suffix
+Can be used to inform that the pattern is based on 'ignore blanks' matching.
+
+_WEAK Suffix
+Used to identify weak patterns.
+
+_STRONG Suffix
+Used to identify strong patterns.
