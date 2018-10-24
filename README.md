@@ -4,7 +4,7 @@ The RL3 Standard Library is a collection of modules accessible to a RL3 program 
 ## Installation
 The RL3 Standard Library is a part of [RL3 binary distribution package](https://rl3.zorallabs.com/wiki/Installation_Guide) which is updated when the major changes to the RL3 codebase or RL3 Standard Library happens.
 
-It is also can be installed manually by owerwriting `/usr/share/rl3/stdlib` folder content.
+It is also can be installed manually by overwriting `/usr/share/rl3/stdlib` folder content.
 
 ## Licence
 This library is provided by [Zoral](https://zorallabs.com) under the Apache License. See [LICENSE](LICENSE) for more information.
