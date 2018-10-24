@@ -25,17 +25,17 @@ The RL3 Standard Library is licensed under the Apache License. Anything contribu
 
 ## Code Style Notes
 
-UPPER_CASE_NAMES
+`UPPER_CASE_NAMES`
 Used for public patterns and predicates.
 
-CamelCaseNames
+`CamelCaseNames`
 Used for 'local' patterns and predicates (i.e. defined for internal purposes - can be used by derived programs, but it is not expected)
 
-_NB Suffix
+`_NB` Suffix
 Can be used to inform that the pattern is based on 'ignore blanks' matching.
 
-_WEAK Suffix
+`_WEAK` Suffix
 Used to identify weak patterns.
 
-_STRONG Suffix
+`_STRONG` Suffix
 Used to identify strong patterns.
