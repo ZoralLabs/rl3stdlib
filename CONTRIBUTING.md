@@ -5,5 +5,5 @@ Contributions are welcome! There are many ways to contribute to this project: re
 ## Getting Started
 
 * Make sure you have a GitHub account.
-* Open a [new issue](issues), assuming one does not already exist.
+* Open a [new issue](https://github.com/jokruger/rl3stdlib/issues), assuming one does not already exist.
 * Clearly describe the issue including steps to reproduce when it is a bug.
