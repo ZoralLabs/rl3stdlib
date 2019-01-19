@@ -70,7 +70,7 @@ pattern YES [icase]
     ({OK}|{OK},? I will|absolutely|agree|alright|alright,? why not|certainly|confirm|correct|do it|exactly|fine|for sure|go ahead|I agree|I don't mind|I think so|it looks perfect|it's fine|it's {OK}|of course|perfect|positive|right|sounds correct|sounds good|sure|sure,? why not|that one works(\sfor me)?|that works(\sfor me)?|that's correct|true|why not|yeah|yep|yep,? that's {OK}|yep,? that's right|y+e+s+(,?\s(I agree|I can|I do|please|that's alright|that't {OK}|you can do it))?|yup|так)
 
 pattern NO [icase]
-    (definitely not|don't|don't do it|false|I can't|I disagree|I don't|I don't think so|I don't want|I don't want that|I don't want to do it|I'm not|na|nah|nah,? I'm good|negative|never|n+o+(,?\s({THANKS}|don't|I cannot|it isn't|maybe next time|never|no don't|not really|that's be all|that's fine,? {THANKS}|that's {OK}|we are good|))?|no way|no way,? no|nope|nope,? not really|not(\s(at all|in this life|interested|really|right now|this time|today|true|yet|{OK}))?|nothing|nothing else|nothing else,? {THANKS}|{THANKS},? but no|{THANKS},? but not this time|wrong|ні)
+    (definitely not|don't|don't do it|false|I can't|I disagree|I don't|I don't think so|I don't want|I don't want that|I don't want to do it|I'm not|na|nah|nah,? I'm good|negative|never|n+o+(,?\s({THANKS}|don't|I cannot|it isn't|maybe next time|never|no don't|not really|that's be all|that's fine,? {THANKS}|that's {OK}|we are good))?|no way|no way,? no|nope|nope,? not really|not(\s(at all|in this life|interested|really|right now|this time|today|true|yet|{OK}))?|nothing|nothing else|nothing else,? {THANKS}|{THANKS},? but no|{THANKS},? but not this time|wrong|ні)
 
 #=== hello/goodbye ===
 
