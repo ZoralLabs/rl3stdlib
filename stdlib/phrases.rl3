@@ -112,8 +112,8 @@ pattern BASE_QUESTION [icase] [inline]
 pattern IS_THERE [icase] [inline]
     (is there)
 
-pattern WHAT_IS [icase] [inline]
-    (what is|who is|define|what do you know about|what can you tell about|what can you tell me about|can you tell me about|tell me about|can i get information on what is|can you give me information about|can i get to know what is|i need information on|i want to get to know about|i need to know what is|can you give the definition of|can you define what is|can you describe what is|{DONT} understand what is|do you know about)
+pattern WHAT_IS [icase]
+    (what is|who is|define|meaning of|definition of|what do you know about|what can you tell about|what can you tell me about|can you tell me about|tell me about|can i get information on what is|can you give me information about|can i get to know what is|i need information on|i want to get to know about|i need to know what is|can you give the definition of|can you define what is|can you describe what is|{DONT} understand what is|do you know about)
 
 pattern WHAT_IS_YOUR_NAME [icase] [inline]
     (what is your name|tell me your name|tell your name)
